@@ -15,4 +15,4 @@ const globalVue = new Vue({
   render: h => h(App)
 }).$mount('#app')
 
-window.globalVue = globalVue;
+window.globalVue = globalVue
