@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# We'll only runchecks on changes that are a part of this commit
+# So let's stash others
+git stash -q --keep-index
+
+#
+# Now we can do our stuff...
+# First, we check code quality
+echo 'Checking Javascript code quality...'
+#jshint .
+# EC here is just a shortcut for "Exit Code"
+#JSCS_EC=$?
+npm run eslint
+ESHINT_EC=$?
+
+# We're done with checks, we can unstash changes
+git stash pop -q
+# Exit if any error codes
+let "ERROR = $ESHINT_EC"
+if [ "${ERROR}" -ne "0" ]
+then
+  echo "Commit aborted."
+  exit ${ERROR}
+fi
+echo "All good!"
