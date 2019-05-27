@@ -6,7 +6,7 @@ import {injectGlobal} from './common/inject'
 import './style/reset.less'
 import './filters/filter'
 //全局注入
-                  injectGlobal()
+injectGlobal()
 
 Vue.config.productionTip = false
 const globalVue = new Vue({
