@@ -12,7 +12,7 @@ export default {
             
         }
     },
-                    mounted: function () {
+    mounted: function () {
                         
     },
     created: function () {
